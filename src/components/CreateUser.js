@@ -69,7 +69,7 @@ export default class Createuser extends Component {
             <div className="row">
                 <div className="col-md-4">
                     <div className="card card-body">
-                        <h3>Create New User</h3>
+                        <h3>Crear nuevo usuario</h3>
                         <form onSubmit={this.onSubmit}>
                             <div className="form-group">
                                 <input
@@ -94,9 +94,6 @@ export default class Createuser extends Component {
                                     onDoubleClick={() => { if (window.confirm('Estas seguro de que deseas borrar el usuario?')) this.deleteUser(user._id) }}
                                 >
                                     {user.username}
-                                    <Link className="btn btn-secondary" to={"/edituser/" + user._id} >
-                                        Edit
-                                    </Link>
                                 </li>)
                             )
                         }

@@ -52,7 +52,7 @@ export default class MoviesList extends Component {
                                     <h5 className="card-title">{movie.title}</h5>
                                     <div className='d-flex justify-content-between'>
                                         <span className="badge bg-dark">{movie.released}</span>
-                                        <span className="badge bg-warning text-dark"><i className="fas fa-star"></i>{movie.globalrating}</span>
+                                        <span className="badge bg-warning text-dark" ><i className="fas fa-star"></i>{movie.globalrating}</span>
                                     </div>
                                 </div>
                             </div>

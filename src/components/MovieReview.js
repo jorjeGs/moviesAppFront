@@ -78,19 +78,20 @@ export default class MovieReview extends Component {
 
       //tratamiento y almacenamiento de datos
       let pano = this.scaleValue(res1.data.rating, [0, 10], [0, 5]);
-      rates.push(Number(pano.toFixed(2)));
-      rates.push(Number(res2.data.local_rating.toFixed(2)));
-      rates.push(Number(res3.data.rate.toFixed(2)));
+      if (pano != 0){rates.push(Number(pano.toFixed(2)));}
+      if (res2.data.local_rating != 0){rates.push(Number(res2.data.local_rating.toFixed(2)));}
+      if (res3.data.rate != 0){rates.push(Number(res3.data.rate.toFixed(2)));}      
       let cesar = this.scaleValue(res4.data.ratingAverage.$numberDecimal, [0, 10], [0, 5]);
-      rates.push(Number(cesar.toFixed(2)));   
-      rates.push(Number(res6.data.avgScore.toFixed(2)));
+      if (cesar != 0){rates.push(Number(cesar.toFixed(2)));}
+      if (res6.data.avgScore != 0){rates.push(Number(res6.data.avgScore.toFixed(2)));}   
       //rates.push(this.state.localrating); //mio jeje
       //sumatoria de calificacion global
       let totalRating = rates.length + 1; //se obtiene la cantidad de calificaciones que ha obtenido
       var ratingsum = 0;
       rates.forEach(function(a){ratingsum += a;});
       console.log(rates);
-      let actualRating = Math.round((ratingsum + this.state.localrating) / totalRating); //promedio real de calificaciones
+      console.log(ratingsum)
+      let actualRating = Number(((ratingsum + Number(this.state.localrating)) / totalRating).toFixed(2)) //promedio real de calificaciones
       console.log(actualRating);
       this.setState({
         ratings: rates,
